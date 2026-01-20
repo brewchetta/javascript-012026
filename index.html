@@ -3,62 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
     <title>Javascript!!!</title>
-
-    <script>
-        // inside of this script tag I am now using javascript
-
-        // the "//" create a comment in javscript
-
-        // console.log("Howdy there")
-
-        // a variable
-        // a box that we put data in
-
-        // declaring a variable with LET lets me reassign it later
-        let woodysQuote = "There's a snake in my boot!"
-        woodysQuote = "I am redefined!!!!"
-        // console.log(woodysQuote)
-
-        // declaring a variable with const means that it's CONSTANT
-        const buzzQuote = "To infinity and beyond!"
-
-        // buzzQuote = "I am also redefined!"
-        
-        // DATA TYPES //
-        const myString = "I AM A STRING"
-        const myOtherString = 'I AM ALSO A STRING'
-        const myOtherOtherString = `I AM ALSO ALSO STRING`
-        // concatenation
-        const addedString = myString + myOtherString
-        // console.log(myString)
-        // a string is basically going to be text
-
-        const myNumber = 1234
-        const myOtherNumber = -5678.12
-        const theSum = myNumber + myOtherNumber
-        // console.log(theSum)
-        // a number is... a number
-
-        const myBoolean = true
-        // either true or false
-
-        // undefined doesn't exist because we accidentally didn't create it
-        const iKindOfExist = undefined
-        // null is when we intentionally don't have something
-        const actuallyNull = null
-
-    </script>
-
+    <script defer src="index.js"></script>
 
 </head>
 <body>
-
-    <h1>Javascript For Frontend!</h1>
     
-    <script>
-        // console.log("I am executing last")
-    </script>
+    <header>
+        <h1>Javascript For Frontend!</h1>
+    </header>
+
+    <p>Change Header Color to...</p>
+
+    <button>Red</button>
+    <button>Green</button>
+    <button>Blue</button>
+    <button>Black</button>
+    
+    <main>
+        
+        <section id="variables-section">
+            <h2>Declaring Variables</h2>
+            <p>Variables can be declared using <strong>var, let, and const</strong>. These days only <strong>let and const</strong> are used. Using <strong>let</strong> allows you to reassign the variable later while using <strong>const</strong> means it is a <strong>constant</strong> and cannot be reassigned:</p>
+            
+            <div class="code-block">
+                <code>
+                    var oldVariable = "I am the old way of declaring variables";
+                    <br>
+                    let changeableVariable = "You can change me later!";
+                    changeableVariable = "I have been changed now!"
+                    <br>
+                    const constantVariable = "I cannot be changed later..."
+                </code>
+            </div>
+        </section>
+        
+        <section id="strings-section">
+            <h2>Strings</h2>
+            <p>A string is generally text or a string of characters. You create strings by wrapping them in matching quotes:</p>
+            
+            <div class="code-block">
+                <code>
+                    const myString = "I am a string";
+                    <br>
+                    const myOtherString = "I am another string";
+                    <br>
+                    const myFinalString = `I am a special string`;
+                </code>
+            </div>
+
+            <p>Strings can be added together to form a new string, this operation is known as "concatenation":</p>
+            <div class="code-block">
+                <code>
+                    const stringOne = "Hello";
+                    <br>
+                    const stringTwo = "World";
+                    <br>
+                    const myFinalString = stringOne + stringTwo;
+                    <br>
+                    // will be "HelloWorld"
+                </code>
+            </div>
+        </section>
+
+        <section id="numbers-section">
+            <h2>Numbers</h2>
+            <p>You can define and use numbers the way you generally expect:</p>
+
+            <div class="code-block">
+                <code>
+                    const one = 1;
+                    <br>
+                    const two = 2;
+                    <br>
+                    const sum = one + two
+                </code>
+            </div>
+        </section>
+
+        <section id="booleans-section">
+            <h2>Booleans</h2>
+            <p>A boolean represents either a true or a false value which is useful in <strong>if/else</strong> statements:</p>
+
+            <div class="code-block">
+                <code>
+                    const truthful = true;
+                    <br>
+                    const notTruthful = false;
+                </code>
+            </div>
+        </section>
+
+        <section id="selectors-section">
+            <h2>Selectors</h2>
+            <p>There are a number of different selectors such as <code>getElementById</code> and <code>getElementsByClassName</code> however the one I use most often is <code>querySelector</code> since it's very flexible and powerful:</p>
+
+            <div class="code-block">
+                <code>
+                    const getAnElement = document.querySelector("h1");
+                    <br>
+                    const gottenById = document.querySelector("#variables-section")
+                    <br>
+                    const gottenByClass = document.querySelector(".code-block")
+                </code>
+            </div>
+
+            <p>The <code>querySelector</code> will only get the first element it finds and if it finds nothing it'll give you back <code>undefined</code>...</p>
+        </section>
+
+        <section id="changing-properties-section">
+            <h2>Changing Properties</h2>
+            <p>Once you have an element you may change its attributes / properties:</p>
+
+            <div class="code-block">
+                <code>
+                    const h1 = document.querySelector("h1");
+                    <br>
+                    h1.innerText = "Frontend Javascript";
+                    <br>
+                    h1.innerHTML = "Frontend <i>Javascript</i>";
+                    <br>
+                    h1.style.color = "red";
+                </code>
+            </div>
+
+            <p>The <code>querySelector</code> will only get the first element it finds and if it finds nothing it'll give you back <code>undefined</code>...</p>
+        </section>
+
+    </main>
 
 </body>
 </html>
