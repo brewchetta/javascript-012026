@@ -96,4 +96,5 @@ blueButton.addEventListener('click', makeHeaderBlue)
 function addTogether(number, otherNumber) {
     return number + otherNumber
 }
+
 // by default a function doesn't give anything back unless we "return" it

@@ -132,6 +132,70 @@
             <p>The <code>querySelector</code> will only get the first element it finds and if it finds nothing it'll give you back <code>undefined</code>...</p>
         </section>
 
+        <section id="functions-section">
+            <h2>Functions</h2>
+            <p>Functions are executable pieces of code that can allow us to perform a set of instructions on each activation. For example these two functions will change the text of the header each time they're clicked:</p>
+
+            <div class="code-block">
+                <code>
+                    function makeHeaderRed() {
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;const header = document.querySelector('h1');
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;header.style.color = "red";
+                        <br>
+                    }
+                    <br>
+                    <br>
+                    function makeHeaderBlue() {
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;const header = document.querySelector('h1');
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;header.style.color = "blue";
+                        <br>
+                    }
+                </code>
+            </div>
+
+            <p>We can then attach them to buttons directly:</p>
+
+            <div class="code-block">
+                <code>
+                    &lt;button onclick="makeHeaderRed()"&gt;Red&lt;/button&gt;
+                    <br>
+                    &lt;button onclick="makeHeaderBlue()"&gt;Blue&lt;/button&gt;
+                </code>
+            </div>
+
+            <p>...or we can attach them via Javascript:</p>
+
+            <div class="code-block">
+                <code>
+                    const redButton = document.querySelector("#red-button");
+                    <br>
+                    redButton.addEventListener("click", makeHeaderRed);
+                </code>
+            </div>
+
+            <p>Functions can also take in or give back data using arguments and the "return" keyword:</p>
+
+            <div class="code-block">
+                <code>
+                    function addTogether(numberOne, numberTwo) {
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return numberOne + numberTwo;
+                        <br>
+                    }
+                    <br>
+                    <br>
+                    addTogether(5,6)
+                    <br>
+                    // this will give back 11
+
+                </code>
+            </div>
+        </section>
+
     </main>
 
 </body>
