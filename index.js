@@ -134,7 +134,7 @@ function displayRandomCatName() {
     catNameDisplay.textContent = randomArrayItem( catNames )
 }
 
-// two kinds of loops (there are more but we'll talk about these...)
+// two kinds of loops (there are more but we'll talk about these first...)
 
 // for (let i = 0; i < catNames.length; i++) {
 //     console.log( catNames[i] )
@@ -147,3 +147,34 @@ function displayRandomCatName() {
 // for (item of catNames) {
 //     console.log(catNames)
 // }
+
+function addCatNameToPage(catName) {
+    // 1. create element
+    const pTag = document.createElement('p')
+
+    // 2. give text and attributes
+    pTag.textContent = catName
+    pTag.className = "cat-name"
+
+    // 3. find a place to put it
+    const catNamesArea = document.querySelector("#cat-names-area")
+    catNamesArea.append(pTag)
+}
+
+for (catName of catNames) {
+    addCatNameToPage(catName)
+}
+
+// DATE //
+
+function showCurrentTime() {
+    const now = new Date()
+    const hour = now.getHours()
+    const minutes = now.getMinutes()
+    const formattedTime = `It is now ${hour}:${minutes} EST`
+    const pTag = document.createElement('p')
+    pTag.textContent = formattedTime
+    document.body.append(pTag)
+}
+
+showCurrentTime()

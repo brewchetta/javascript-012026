@@ -12,13 +12,19 @@ body {
 }
 
 #return-at {
-    position: fixed;
-    padding: 1rem;
-    font-size: 4rem;
-    border: solid black 5px;
-    border-radius: 8px;
     background: #555;
+    border-bottom: solid black 5px;
+    border-radius: 8px;
     color: #fff;
-    top: 0;
+    font-size: 4rem;
+    padding: 1rem;
+    position: fixed;
+    text-align: center;
+    left: 0;
     right: 0;
+    top: 0;
+}
+
+.cat-name {
+    color: red;
 }

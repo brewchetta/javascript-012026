@@ -310,6 +310,72 @@
 
         </section>
 
+        <section>
+
+            <h2>Adding New Content</h2>
+
+            <p>You can add new items to the DOM (Document Object Model) using three steps...</p>
+
+            <ol>
+                <li>Create the element so it exists.</li>
+                <li>Give the element attributes, text, and anything else it needs.</li>
+                <li>Add the element to where it needs to go.</li>
+            </ol>
+
+            <p>To create an element we use the special <code>.createElement()</code> function letting it know what kind of element we'd like to create:</p>
+            
+            <div class="code-block">
+                <code>
+                    const pTag = document.createElement('p')
+                </code>
+            </div>
+
+            <p>Then we can add things like <code>textContent</code> or a <code>className</code>:</p>
+
+            <div class="code-block">
+                <code>
+                    pTag.textContent = "Lorem ipsum dolorum etc."
+                    <br>
+                    pTag.className = "lorem-ipsum"
+                </code>
+            </div>
+
+            <p>Finally we can find a place to put it, usually in a specific container:</p>
+
+            <div class="code-block">
+                <code>
+                    const loremContainer = document.querySelector("#lorem-container")
+                    <br>
+                    loremContainer.append(pTag)
+                </code>
+            </div>
+
+            <p>It should now show up on the screen! The code below was created using this method and looping over the <code>catNames</code> array:</p>
+            
+            <div id="cat-names-area">
+            </div>
+
+        </section>
+
+        <section>
+            <h2>Date & String Interpolation</h2>
+
+            <p>You can access the current day and time with <code>new Date()</code> and use its various attributes to add it to a string through a process known as string interpolation:</p>
+
+            <div class="code-block">
+                <code>
+                    const now = new Date()
+                    
+                    const hour = now.getHours()
+                    const minute = now.getMinutes()
+
+                    const formattedString = `It is currently ${hour}:${minute}...`
+                </code>
+            </div>
+
+            <p>String interpolation can only happen with backtics, a.k.a. the <code style="color:white;background-color:#555;">`</code> key. You can interpolate values and variables in the <code>${ }</code> syntax.</p>
+        </section>
+
     </main>
 
 </body>
