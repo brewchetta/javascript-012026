@@ -55,3 +55,45 @@ const h1 = document.querySelector('h1')
 // we can change the element's attributes such as its text or style
 h1.textContent = "Javascript for Frontend"
 h1.style.color = "#000"
+
+// the document is also an element we can alter:
+document.title = "Javascript for Frontend"
+
+// FUNCTIONS //
+
+// a function is a repeatable piece of code that does something when we call/execute it
+
+// function declaration
+function makeHeaderRed() {
+    // the thing that's in here is the code that will execute
+    const header = document.querySelector('h1')
+    header.style.color = "red"
+}
+
+function makeHeaderBlue() {
+    const header = document.querySelector('h1')
+    header.style.color = "blue"
+}
+
+function makeHeaderBlack() {
+    const header = document.querySelector('h1')
+    header.style.color = "black"
+}
+
+function makeHeaderGreen() {
+    const header = document.querySelector('h1')
+    header.style.color = "green"
+}
+
+// add event listener allows certain functions to happen (get called) when certain events happen (such as a click on a button)
+const redButton = document.querySelector("#red-button")
+redButton.addEventListener('click', makeHeaderRed)
+
+const blueButton = document.querySelector("#blue-button")
+blueButton.addEventListener('click', makeHeaderBlue)
+
+// functions can take arguments/parameters in the parentheses in order to do things with those args/params
+function addTogether(number, otherNumber) {
+    return number + otherNumber
+}
+// by default a function doesn't give anything back unless we "return" it

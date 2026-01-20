@@ -17,9 +17,9 @@
     <p>Change header color to...</p>
 
     <button id="red-button">Red</button>
-    <button id="green-button">Green</button>
+    <button onclick="makeHeaderGreen()" id="green-button">Green</button>
     <button id="blue-button">Blue</button>
-    <button id="black-button">Black</button>
+    <button onclick="makeHeaderBlack()" id="black-button">Black</button>
     
     <main>
         
@@ -32,6 +32,7 @@
                     var oldVariable = "I am the old way of declaring variables";
                     <br>
                     let changeableVariable = "You can change me later!";
+                    <br>
                     changeableVariable = "I have been changed now!"
                     <br>
                     const constantVariable = "I cannot be changed later..."
@@ -122,7 +123,7 @@
                     <br>
                     h1.innerText = "Frontend Javascript";
                     <br>
-                    h1.innerHTML = "Frontend <i>Javascript</i>";
+                    h1.innerHTML = "Frontend &lt;i&gt;Javascript&lt;/i&gt;";
                     <br>
                     h1.style.color = "red";
                 </code>
