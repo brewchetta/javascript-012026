@@ -99,7 +99,7 @@ function addTogether(number, otherNumber) {
 
 // by default a function doesn't give anything back unless we "return" it
 
-// ARRAYS // RETURN AT 3:15 EST
+// ARRAYS // RETURN AT 3:23 EST
 
 const catNames = [ "Octavia", "Ursula", "Olivia" ]
 
@@ -133,3 +133,17 @@ function displayRandomCatName() {
     const catNameDisplay = document.querySelector("#cat-name-display")
     catNameDisplay.textContent = randomArrayItem( catNames )
 }
+
+// two kinds of loops (there are more but we'll talk about these...)
+
+// for (let i = 0; i < catNames.length; i++) {
+//     console.log( catNames[i] )
+// }
+
+// the 'i' stands for 'index' since it's a placeholder for all the numbers from 0 to the end of the array
+
+// using 'for of' is often simpler although it's less flexible (we don't control the index number, when to stop, etc.)
+
+// for (item of catNames) {
+//     console.log(catNames)
+// }
