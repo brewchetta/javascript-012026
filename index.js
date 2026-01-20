@@ -98,3 +98,38 @@ function addTogether(number, otherNumber) {
 }
 
 // by default a function doesn't give anything back unless we "return" it
+
+// ARRAYS // RETURN AT 3:15 EST
+
+const catNames = [ "Octavia", "Ursula", "Olivia" ]
+
+catNames.push("Maggie")
+catNames.push("Turbo")
+
+// array is now [ "Octavia", "Ursula", "Olivia", "Maggie", "Turbo" ]
+
+catNames.pop()
+
+// array is now [ "Octavia", "Ursula", "Olivia", "Maggie" ]
+
+catNames.unshift("Figaro")
+
+// array is now [ "Figaro", "Octavia", "Ursula", "Olivia", "Maggie" ]
+
+catNames[0] // this is "Figaro"
+catNames[2] // this is "Ursula"
+catNames[2] = "Meowsby"
+
+// array is now [ "Figaro", "Octavia", "Meowsby", "Olivia", "Maggie" ]
+
+function randomArrayItem(array) {
+    // multiply a random decimal by the length of the array and round down to get a random index
+    const randomIndex = Math.floor( Math.random() * array.length )
+    return array[randomIndex]
+}
+
+function displayRandomCatName() {
+    const catNames = ["Octavia", "Ursula", "Guinevere", "Turbo", "Figaro", "Meowsby", "Maggie"]
+    const catNameDisplay = document.querySelector("#cat-name-display")
+    catNameDisplay.textContent = randomArrayItem( catNames )
+}

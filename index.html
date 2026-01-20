@@ -196,6 +196,119 @@
             </div>
         </section>
 
+        <section id="arrays-section">
+            <h2>Arrays</h2>
+
+            <p>An array is a more complex data type which allows us to store several values in a sequence. Basically, an array is a collection of data:</p>
+
+            <div class="code-block">
+                <code>
+                    const catNames = ["Octavia", "Ursula", "Olivia"]
+                    <br>
+                    catNames.length // this will return 3
+                    <br>
+                    const emptyArray = []
+                    emptyArray.length // this will return 0
+                    <br>
+                    const arrayWithDifferentDataTypes = [42, "meaning of life", true]
+                    <br>
+                    arrayWithDifferentDataTypes.length // return 3
+                </code>
+            </div>
+
+            <p>Each item in an array has an "index" which is basically what number in the array's order it is. Javascript is "zero indexed" which means it starts counting at "0" instead of at "1". We can access and change items in an array with its index:</p>
+
+            <div class="code-block">
+                <code>
+                    const catNames = ["Octavia", "Ursula", "Olivia"]
+                    <br>
+                    catNames[2] // this will be "Olivia"
+                    <br>
+                    catNames[2] = "Elizabeth"
+                </code>
+            </div>
+
+            <p>We can add items to the end of the array with <code>.push()</code> and remove them with <code>.pop()</code>. We can also add and remove items from the beginning with <code>.unshift()</code> and <code>.shift()</code>:</p>
+
+            <div class="code-block">
+                <code>
+                    const catNames = ["Octavia", "Ursula", "Olivia"]
+                    <br>
+                    catNames.push("Guinevere")
+                    <br>
+                    // ["Octavia", "Ursula", "Olivia", "Guinevere"]
+                    <br>
+                    catNames.pop()
+                    <br>
+                    // ["Octavia", "Ursula", "Olivia"]
+                    <br>
+                    catNames.unshift("Garfield")
+                    <br>
+                    // ["Garfield", "Octavia", "Ursula", "Olivia"]
+                    <br>
+                    catNames.shift()
+                    <br>
+                    // ["Octavia", "Ursula", "Olivia"]
+                </code>
+
+                <p>These changes to the array are "destructive"; they don't make a new array, they instead edit the old array.</p>
+            </div>
+
+        </section>
+
+        <section class="math-random-section">
+            <h2>Random Array Item</h2>
+
+            <p>If we want to get a random item from an array we need to use a special set of JS functions starting with <code>Math.random</code>. Using <code>Math.random</code> will return a random fraction between <code>0</code> and <code>1</code>. We then multiply that by the length of the array and then round down using <code>Math.floor</code>. All together this looks like this:</p>
+            
+            <div class="code-block">
+                function randomArrayItem(array) {
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                const index = Math.floor(Math.random() * array.length)
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                return array[index]
+                <br>
+                }
+            </div>
+
+            <p>Random cat name: <span style="font-weight: bold;" id="cat-name-display">???</span></p>
+            <button onclick="displayRandomCatName()">Get Random Cat Name</button>
+        </section>
+
+        <section>
+            <h2>Loops</h2>
+            <p>Doing something for each item in an array is known as "looping" and Javascript has a lot of different ways of achieving loops. There is the quite complicated for loop with an index that you'll see commonly:</p>
+
+            <div class="code-block">
+                <code>
+                    for (let index = 0; index < array.length; index++) {
+                        <br>
+                        doSomething( array[i] )
+                        <br>
+                    }
+                </code>
+            </div>
+
+            <p>This will start at the beginning of the array and run a function on each item until the end of the array.</p>
+
+            <p>There is also a far simpler version of the loop that doesn't use the index:</p>
+
+            <div class="code-block">
+                <code>
+                    for (item in array) {
+                        <br>
+                        doSomething( item )
+                        <br>
+                    }
+                </code>
+            </div>
+
+            <p>This has the drawback that we don't get the index but if we don't care about it this loop is easier to write.</p>
+
+        </section>
+
     </main>
 
 </body>
