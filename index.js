@@ -178,3 +178,112 @@ function showCurrentTime() {
 }
 
 showCurrentTime()
+
+// CONDITIONAL //
+
+const now = new Date()
+const hour = now.getHours()
+
+// if (hour < 12) {
+//     console.log("It's breakfast time!")
+// } else if (hour < 17) {
+//     console.log("It's lunch time!")
+// } else {
+//     console.log("It's dinner time!")
+// }
+
+// if (1 < 2 && 2 < 3) {
+//     console.log("BOTH ARE TRUE")
+// } else {
+//     console.log("ONE OR BOTH ARE NOT TRUE")
+// }
+
+// if (1 > 2 || 2 > 3) {
+//     console.log("AT LEAST ONE IS TRUE")
+// } else {
+//     console.log("BOTH ARE NOT TRUE")
+// }
+
+// const someNumber = -10
+
+// if (someNumber > 0) {
+
+//     if (someNumber > 9) {
+//         console.log("someNumber is more than one digit")
+//     } else {
+//         console.log("someNumber is positive")
+//     }
+
+// } else {
+//     console.log("this is not a positive number")
+// }
+
+// JAVASCRIPT OBJECTS //
+
+// nested object
+const animals = {
+    octopus: { 
+        species: "Octopus", 
+        age: 10, 
+        size: "small", 
+        habitat: "the ocean" 
+    },
+    deer: {
+        species: "Deer", 
+        age: 6, 
+        size: "not as big as a horse", 
+        habitat: "the forest" 
+    },
+    otter: {
+        species: "Otter", 
+        age: 15, 
+        size: "otter sized", 
+        habitat: "rivers, lakes and oceans" 
+    },
+    tiger: {
+        species: "Tiger", 
+        age: 15, 
+        size: "big", 
+        habitat: "jungles" 
+    },
+    sloth: {
+        species: "Sloth", 
+        age: 40, 
+        size: "sloth sized", 
+        habitat: "jungles" 
+    }
+}
+
+function makeAnimalTab(animalObject) {
+    // 1. createElement
+    const newTab = document.createElement("li")
+    
+    // 2. give it information
+    newTab.textContent = animalObject.species
+    newTab.id = animalObject.species
+
+    // 3. place it in tabs-area
+    const tabsArea = document.querySelector("#tabs-area")
+    tabsArea.append(newTab)
+}
+
+for (animal of Object.values( animals )) {
+    makeAnimalTab(animal)
+}
+
+const tabsArea = document.querySelector("#tabs-area")
+
+tabsArea.addEventListener("click", function populateAnimalDetails(event) {
+    const animalSpecies = event.target.id.toLowerCase()
+    const animal = animals[animalSpecies]
+    
+    const species = document.querySelector('#pet-species')
+    const age = document.querySelector('#age')
+    const size = document.querySelector('#size')
+    const habitat = document.querySelector('#habitat')
+
+    species.textContent = animal.species
+    age.textContent = animal.age
+    size.textContent = animal.size
+    habitat.textContent = animal.habitat
+})

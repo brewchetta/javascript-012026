@@ -376,6 +376,105 @@
             <p>String interpolation can only happen with backtics, a.k.a. the <code style="color:white;background-color:#555;">`</code> key. You can interpolate values and variables in the <code>${ }</code> syntax.</p>
         </section>
 
+        <section>
+            <h2>Conditional Statements</h2>
+
+            <p>In Javascript (and many other languages) you can use the language if "if this do this and else do this". This is known technically as conditional logic but follows a very simple idea... if something is true we do something and otherwise we do something else.</p>
+
+            <div class="code-block">
+                <code>
+                    if (true) {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        console.log("I am true")
+                        <br>
+                    } else {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        console.log("I am false")
+                        <br>
+                    }
+                </code>
+            </div>
+
+            <p>Certain values and expressions come out explicitly as <code>true</code> or <code>false</code> such as <code>1 &lt; 2</code> which will be <code>true</code> and <code>2 &lt; 1</code> which comes out to <code>false</code>.</p>
+
+            <p>Additionally, every value in Javascript has an inherent "truthiness" to it. For example, in an <code>if</code> statement the <code>undefined</code> value will act just like the <code>false</code> boolean.</p>
+
+            <p>You can test an item's "truthiness" by converting it to a boolean:</p>
+
+            <div class="code-block">
+                <code>
+                    Boolean("Hello world") // true
+                    <br>
+                    Boolean("") // false
+                    <br>
+                    Boolean(100) // true
+                    <br>
+                    Boolean(0) // false
+                    <br>
+                    Boolean( ["hello", "world"] ) // true
+                    <br>
+                    Boolean( [] ) // true
+                </code>
+            </div>
+
+            <p>One additional wrinkle to an <code>if else</code> statement is that you aren't limited to a single <code>if</code>:</p>
+
+            <div class="code-block">
+                <code>
+                    if (1 > 2) {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        console.log("First condition was true")
+                        <br>
+                    } else if (2 > 3) {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        console.log("Second condition was true")
+                        <br>
+                    } else if (3 > 4) {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        console.log("Third condition was true")
+                        <br>
+                    } else {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        console.log("None of the conditions were true")
+                        <br>
+                    }
+                </code>
+            </div>
+
+            <p>Finally, Javascript has a special syntax for these expressions where we can say "if this AND this are true" as well as "if this OR this are true". The <code>&&</code> is used to indicate both must be true and the <code>||</code> is used to indicate either one can be true:</p>
+
+            <div class="code-block">
+                <code>
+                    true && true // true
+                    <br>
+                    true && false // false
+                    <br>
+                    true || false // true
+                    <br>
+                    false || false // false
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Javascript Objects</h2>
+
+            <p>More text to come here...</p>
+
+            <ul id="tabs-area">
+            </ul>
+
+            <div id="information-area">
+
+                <h3 id="pet-species">Pet Species Goes Here</h3>
+                <p id="age">Age goes here</p>
+                <p id="size">Size goes here</p>
+                <p id="habitat">Habitat goes here</p>
+
+            </div>
+
+        </section>
+
     </main>
 
 </body>
