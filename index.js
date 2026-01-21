@@ -220,7 +220,13 @@ const hour = now.getHours()
 
 // JAVASCRIPT OBJECTS //
 
-// nested object
+// octopus has key/value pairs, for example "species" is "Octopus"
+const octopus = { species: "Octopus", age: 10, size: "small", habitat: "the ocean" }
+
+// console.log(octopus.species)
+// console.log(octopus["habitat"])
+
+// this object below is a nested object (it is an object with more objects inside of it)
 const animals = {
     octopus: { 
         species: "Octopus", 
@@ -254,6 +260,7 @@ const animals = {
     }
 }
 
+// this function adds a tab for a specific animal object from animals
 function makeAnimalTab(animalObject) {
     // 1. createElement
     const newTab = document.createElement("li")
@@ -267,23 +274,30 @@ function makeAnimalTab(animalObject) {
     tabsArea.append(newTab)
 }
 
+// this loop goes through each of the animal objects and makes a tab for them
+// Object.values creates an array of each of the animals to help us loop through
 for (animal of Object.values( animals )) {
     makeAnimalTab(animal)
 }
 
 const tabsArea = document.querySelector("#tabs-area")
 
+// when we click inside the tabs area, this triggers
 tabsArea.addEventListener("click", function populateAnimalDetails(event) {
+    // event.target is the element we clicked on so we get the id attached to the tab so we can identify the animal clicked
     const animalSpecies = event.target.id.toLowerCase()
+    // animals[animalSpecies] will substitute in the id of the tab we clicked on for example animals["octopus"]
     const animal = animals[animalSpecies]
     
+    // get all of the relevant areas on the page to change
     const species = document.querySelector('#pet-species')
     const age = document.querySelector('#age')
     const size = document.querySelector('#size')
     const habitat = document.querySelector('#habitat')
 
+    // change all of the relevant areas by adding in animal values
     species.textContent = animal.species
-    age.textContent = animal.age
-    size.textContent = animal.size
-    habitat.textContent = animal.habitat
+    age.textContent = "Age: " + animal.age
+    size.textContent = "Size: " + animal.size
+    habitat.textContent = "Habitat: " + animal.habitat
 })

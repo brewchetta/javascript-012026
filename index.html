@@ -459,14 +459,56 @@
         <section>
             <h2>Javascript Objects</h2>
 
-            <p>More text to come here...</p>
+            <p>An object is a data structure similar to an array however unlike an array which uses an index to track the data inside it, an object uses a "key" which is sort of like a label:</p>
+
+            <div class="code-block">
+                <code>
+                    const otter = { species: "Otter", habitat: "rivers" }
+                </code>
+            </div>
+
+            <p>Accessing information inside an object can be done through either dot notation or bracket notation and additionally it's easy to set an object's values this way as well.</p>
+
+            <div class="code-block">
+                <code>
+                    otter.species // "Otter"
+                    <br>
+                    otter["habitat"] // "rivers"
+                    <br>
+                    otter.species = "River Otter"
+                    <br>
+                    otter["habitat"] = "rivers and oceans"
+                </code>
+            </div>
+
+            <p>Objects can even be nested inside other objects:</p>
+
+            <div class="code-block">
+                <code>
+                    const animals = {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        octopus: { species: "Octopus", habitat: "oceans" }
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        deer: { species: "Deer", habitat: "forests" }
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        otter: { species: "Otter", habitat: "rivers" }
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        tiger: { species: "Tiger", habitat: "jungles" }
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        sloth: { species: "Sloth", habitat: "jungles" }
+                        <br>
+                    }
+                </code>
+            </div>
+
+            <p>Below we've used a similar nested object to create a tab for each of the animals and clicking the tag uses DOM manipulation to show more data from the inner objects (check main.js to see how it's done):</p>
 
             <ul id="tabs-area">
             </ul>
 
             <div id="information-area">
 
-                <h3 id="pet-species">Pet Species Goes Here</h3>
+                <h3 id="pet-species">Species Goes Here</h3>
                 <p id="age">Age goes here</p>
                 <p id="size">Size goes here</p>
                 <p id="habitat">Habitat goes here</p>

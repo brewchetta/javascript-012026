@@ -28,3 +28,18 @@ body {
 .cat-name {
     color: red;
 }
+
+#tabs-area {
+    display: flex;
+    gap: 0.5em;
+    padding-left: 0;
+}
+
+#tabs-area li {
+    list-style: none;
+    background: #abdf7d;
+    padding: 0.5em;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
