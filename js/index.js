@@ -171,10 +171,10 @@ function showCurrentTime() {
     const now = new Date()
     const hour = now.getHours()
     const minutes = now.getMinutes()
-    const formattedTime = `It is now ${hour}:${minutes} EST`
+    const formattedTime = `Page loaded at ${hour}:${minutes} EST`
     const pTag = document.createElement('p')
     pTag.textContent = formattedTime
-    document.body.append(pTag)
+    document.body.prepend(pTag)
 }
 
 showCurrentTime()
@@ -288,16 +288,22 @@ tabsArea.addEventListener("click", function populateAnimalDetails(event) {
     const animalSpecies = event.target.id.toLowerCase()
     // animals[animalSpecies] will substitute in the id of the tab we clicked on for example animals["octopus"]
     const animal = animals[animalSpecies]
-    
-    // get all of the relevant areas on the page to change
-    const species = document.querySelector('#pet-species')
-    const age = document.querySelector('#age')
-    const size = document.querySelector('#size')
-    const habitat = document.querySelector('#habitat')
 
-    // change all of the relevant areas by adding in animal values
-    species.textContent = animal.species
-    age.textContent = "Age: " + animal.age
-    size.textContent = "Size: " + animal.size
-    habitat.textContent = "Habitat: " + animal.habitat
+    // check that the animal we got from the animals object exists before proceeding (otherwise we get an error)
+    if (animal) {
+
+        // get all of the relevant areas on the page to change
+        const species = document.querySelector('#pet-species')
+        const age = document.querySelector('#age')
+        const size = document.querySelector('#size')
+        const habitat = document.querySelector('#habitat')
+    
+        // change all of the relevant areas by adding in animal values
+        species.textContent = animal.species
+        age.textContent = "Age: " + animal.age
+        size.textContent = "Size: " + animal.size
+        habitat.textContent = "Habitat: " + animal.habitat
+
+    }
+    
 })
