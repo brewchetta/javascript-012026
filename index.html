@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <title>Javascript!!!</title>
+    <script defer src="js/gsap.min.js"></script>
     <script defer src="js/index.js"></script>
     <script src="js/timer.js"></script>
 
@@ -522,12 +523,113 @@
 
             <p>You can find more information about GSAP <a href="https://gsap.com/">here</a> including their <a href="https://gsap.com/resources/get-started">tutorial</a>. Reading documentation and going through a tutorial is often the best way to learn a new library.</p>
 
+            <p>Animating the box below uses a tween. This tween can be thought of as a part of an entire sequence of animation however in our case the animation only uses one tween to get the desired effect:</p>
+
+            <div class="code-block">
+                <code>
+                    const tween = gsap.("#box-one", {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        x: "-300px",
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        backgroundColor: "#000",
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        rotation: -180,
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        duration: 3,
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        repeat: -1,
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        yoyo: true,
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        ease: "power1.in"
+                        <br>
+                    })
+                </code>
+            </div>
+
+            <p>Tweens require the identity of the element they're animating as well as an object with keys and values for the different attributes of the animation.</p>
+
+            <p>Ease is a particularly important attribute since it determines the animation curve - essentially how fast the animation progresses at different points.</p>
+
+            <p>A tween that uses <code>.from()</code> means it starts at a specific animation state (for example left by 300 pixels) and goes to it's natural place on the screen. A tween that uses <code>.to()</code> will instead begin at it's natural place on the screen and move to the specified animation state (for example left by 300 pixels).</p>
+
+            <p>If we want to use more than one tween on an element they will all trigger simultaneously. Sometimes we want tweens to happen in sequence and we can either <code>delay</code> a tween or else use a special construct known as a <code>timeline</code>:</p>
+
+            <div class="code-block">
+                <code>
+                    const boxTwoTimeline = gsap.timeline({ defaults: { duration: 2 } })
+                    <br><br>
+                    boxTwoTimeline.to("#box-two", {borderRadius: "50px",})
+                    <br>
+                    .to("#box-two", {y: -300,ease: "bounce.in"})
+                    <br>
+                    .to("#box-two", {opacity: 0,})
+                </code>
+            </div>
+
+            <p>In a timeline all the chained <code>.to</code> tweens will wait until the previous tween completes. Additionally the defaults in the timeline will get applied to each tween meaning each tween lasts 2 seconds in this case.</p>
+
+            <p>A timeline is useful for multiple different tweens that can be on the same element or different elements but tweens can also affect multiple elements which have all be selected at the same time. For example if you would like to affect all <code>&lt;svg&gt;</code> elements:</p>
+
+            <div class="code-block">
+                <code>
+                    gsap.to("svg", { rotation: 360 })
+                </code>
+            </div>
+
+            <p>This will target every <code>&lt;svg&gt;</code> and make it rotate. Additionally if you want to stagger the animations and make each element wait one second after the previous element animates:</p>
+
+            <div class="code-block">
+                <code>
+                    gsap.to("svg", { rotation: 360, stagger: 1 })
+                </code>
+            </div>
+
+            <p>Although you can add a duration here, these are considered a single tween all together and the animation is considered to be at its end when the last element finishes its animation which might be much longer than you expect with a stagger.</p>
+
             <div id="gsap-sandbox">
+
+                <button onclick="pauseAll()">Pause</button>
+
+                <button onclick="playAll()">Play</button>
                 
                 <div id="box-one"></div>
 
-            </div>
+                <p id="animated-words">Hello world</p>
 
+                <div id="box-two">
+                    <a href="#">Word</a>
+                </div>
+
+                <svg version="1.1" id="svg" width="260" height="200" viewBox="0 0 260 200" xml:space="preserve">
+                    <rect id="svgRectangle" x="20" y="60" width="220" height="80" fill="#f00"></rect>
+                </svg>
+
+                <svg version="1.1" id="svg" width="260" height="200" viewBox="0 0 260 200" xml:space="preserve">
+                    <rect id="svgRectangle" x="20" y="60" width="220" height="80" fill="#f00"></rect>
+                </svg>
+
+
+                <svg version="1.1" id="svg" width="260" height="200" viewBox="0 0 260 200" xml:space="preserve">
+                    <rect id="svgRectangle" x="20" y="60" width="220" height="80" fill="#f00"></rect>
+                </svg>
+
+
+                <svg version="1.1" id="svg" width="260" height="200" viewBox="0 0 260 200" xml:space="preserve">
+                    <rect id="svgRectangle" x="20" y="60" width="220" height="80" fill="#f00"></rect>
+                </svg>
+
+
+                <svg version="1.1" id="svg" width="260" height="200" viewBox="0 0 260 200" xml:space="preserve">
+                    <rect id="svgRectangle" x="20" y="60" width="220" height="80" fill="#f00"></rect>
+                </svg>
+
+
+                <svg version="1.1" id="svg" width="260" height="200" viewBox="0 0 260 200" xml:space="preserve">
+                    <rect id="svgRectangle" x="20" y="60" width="220" height="80" fill="#f00"></rect>
+                </svg>
+
+            </div>
 
         </section>
 

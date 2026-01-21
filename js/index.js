@@ -307,3 +307,67 @@ tabsArea.addEventListener("click", function populateAnimalDetails(event) {
     }
     
 })
+
+
+// GSAP //
+
+// tween --> a single part of the animation (we can animate an entire sequence if we wanted to... and we will soon!)
+
+// #box-one identifies what to animate
+// the object includes all the other info for the animation
+const boxOneTween = gsap.to("#box-one", { 
+    // x means move it horizontally
+    x: "-300px",
+    backgroundColor: "#000",
+    rotation: -180,
+    // duration is in seconds
+    duration: 3,
+    // repeat: -1 means repeat infinitely
+    repeat: -1,
+    // when repeating, yoyo means move backwards and forwards through the animation
+    yoyo: true,
+    // ease determines the animation curve a.k.a. how the timing of your animation looks
+    ease: "power1.in"
+})
+
+const wordsTween = gsap.from("#animated-words", {
+    color: "red",
+    duration: 0.5,
+    repeat: -1,
+    yoyo: true,
+})
+
+// timeline allows us to stitch multiple tweens together to make a more complex animation
+const boxTwoTimeline = gsap.timeline({
+    repeat: -1,
+    yoyo: true,
+    defaults: { duration: 2 }
+})
+
+boxTwoTimeline
+.to("#box-two", { borderRadius: "50px" })
+.to("#box-two", { y: -300, ease: "bounce.in" })
+.to("#box-two", { opacity: 0 })
+
+// some tweens can target multiple elements such as this one which gets all svg's
+const svgTween = gsap.to("svg", {
+    rotation: 360,
+    duration: 2.5,
+    stagger: 0.5,
+    repeat: -1
+})
+// stagger means each svg will wait 0.5 seconds after the svg before it starts animating to actually run its own animation
+
+const allAnimations = [boxOneTween, boxTwoTimeline, wordsTween, svgTween]
+
+function playAll() {
+    for (animation of allAnimations) {
+        animation.play()
+    }
+}
+
+function pauseAll() {
+    for (animation of allAnimations) {
+        animation.pause()
+    }
+}

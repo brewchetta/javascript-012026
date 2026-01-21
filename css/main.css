@@ -57,3 +57,14 @@ body {
     margin: auto;
     border-radius: 8px;
 }
+
+#box-two {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#box-two a {
+    color: white;
+    text-decoration: overline;
+}
