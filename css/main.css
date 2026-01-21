@@ -43,3 +43,17 @@ body {
     text-transform: uppercase;
     border-radius: 5px;
 }
+
+#gsap-sandbox {
+    min-height: 200px;
+    background-color: #ccc;
+    padding: 1em;
+}
+
+#gsap-sandbox div {
+    height: 100px;
+    width: 100px;
+    background-color: #f00;
+    margin: auto;
+    border-radius: 8px;
+}
