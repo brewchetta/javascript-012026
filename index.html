@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Javascript!!!</title>
+    <script defer src="index.js"></script>
+    <script src="timer.js"></script>
+
+</head>
+<body>
+    
+    <header>
+        <h1>Javascript For Frontend!</h1>
+    </header>
+
+    <p>Change header color to...</p>
+
+    <button id="red-button">Red</button>
+    <button onclick="makeHeaderGreen()" id="green-button">Green</button>
+    <button id="blue-button">Blue</button>
+    <button onclick="makeHeaderBlack()" id="black-button">Black</button>
+    
+    <main>
+        
+        <section id="variables-section">
+            <h2>Declaring Variables</h2>
+            <p>Variables can be declared using <strong>var, let, and const</strong>. These days only <strong>let and const</strong> are used. Using <strong>let</strong> allows you to reassign the variable later while using <strong>const</strong> means it is a <strong>constant</strong> and cannot be reassigned:</p>
+            
+            <div class="code-block">
+                <code>
+                    var oldVariable = "I am the old way of declaring variables";
+                    <br>
+                    let changeableVariable = "You can change me later!";
+                    <br>
+                    changeableVariable = "I have been changed now!"
+                    <br>
+                    const constantVariable = "I cannot be changed later..."
+                </code>
+            </div>
+        </section>
+        
+        <section id="strings-section">
+            <h2>Strings</h2>
+            <p>A string is generally text or a string of characters. You create strings by wrapping them in matching quotes:</p>
+            
+            <div class="code-block">
+                <code>
+                    const myString = "I am a string";
+                    <br>
+                    const myOtherString = "I am another string";
+                    <br>
+                    const myFinalString = `I am a special string`;
+                </code>
+            </div>
+
+            <p>Strings can be added together to form a new string, this operation is known as "concatenation":</p>
+            <div class="code-block">
+                <code>
+                    const stringOne = "Hello";
+                    <br>
+                    const stringTwo = "World";
+                    <br>
+                    const myFinalString = stringOne + stringTwo;
+                    <br>
+                    // will be "HelloWorld"
+                </code>
+            </div>
+        </section>
+
+        <section id="numbers-section">
+            <h2>Numbers</h2>
+            <p>You can define and use numbers the way you generally expect:</p>
+
+            <div class="code-block">
+                <code>
+                    const one = 1;
+                    <br>
+                    const two = 2;
+                    <br>
+                    const sum = one + two
+                </code>
+            </div>
+        </section>
+
+        <section id="booleans-section">
+            <h2>Booleans</h2>
+            <p>A boolean represents either a true or a false value which is useful in <strong>if/else</strong> statements:</p>
+
+            <div class="code-block">
+                <code>
+                    const truthful = true;
+                    <br>
+                    const notTruthful = false;
+                </code>
+            </div>
+        </section>
+
+        <section id="selectors-section">
+            <h2>Selectors</h2>
+            <p>There are a number of different selectors such as <code>getElementById</code> and <code>getElementsByClassName</code> however the one I use most often is <code>querySelector</code> since it's very flexible and powerful:</p>
+
+            <div class="code-block">
+                <code>
+                    const getAnElement = document.querySelector("h1");
+                    <br>
+                    const gottenById = document.querySelector("#variables-section")
+                    <br>
+                    const gottenByClass = document.querySelector(".code-block")
+                </code>
+            </div>
+
+            <p>The <code>querySelector</code> will only get the first element it finds and if it finds nothing it'll give you back <code>undefined</code>...</p>
+        </section>
+
+        <section id="changing-properties-section">
+            <h2>Changing Properties</h2>
+            <p>Once you have an element you may change its attributes / properties:</p>
+
+            <div class="code-block">
+                <code>
+                    const h1 = document.querySelector("h1");
+                    <br>
+                    h1.innerText = "Frontend Javascript";
+                    <br>
+                    h1.innerHTML = "Frontend &lt;i&gt;Javascript&lt;/i&gt;";
+                    <br>
+                    h1.style.color = "red";
+                </code>
+            </div>
+
+            <p>The <code>querySelector</code> will only get the first element it finds and if it finds nothing it'll give you back <code>undefined</code>...</p>
+        </section>
+
+        <section id="functions-section">
+            <h2>Functions</h2>
+            <p>Functions are executable pieces of code that can allow us to perform a set of instructions on each activation. For example these two functions will change the text of the header each time they're clicked:</p>
+
+            <div class="code-block">
+                <code>
+                    function makeHeaderRed() {
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;const header = document.querySelector('h1');
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;header.style.color = "red";
+                        <br>
+                    }
+                    <br>
+                    <br>
+                    function makeHeaderBlue() {
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;const header = document.querySelector('h1');
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;header.style.color = "blue";
+                        <br>
+                    }
+                </code>
+            </div>
+
+            <p>We can then attach them to buttons directly:</p>
+
+            <div class="code-block">
+                <code>
+                    &lt;button onclick="makeHeaderRed()"&gt;Red&lt;/button&gt;
+                    <br>
+                    &lt;button onclick="makeHeaderBlue()"&gt;Blue&lt;/button&gt;
+                </code>
+            </div>
+
+            <p>...or we can attach them via Javascript:</p>
+
+            <div class="code-block">
+                <code>
+                    const redButton = document.querySelector("#red-button");
+                    <br>
+                    redButton.addEventListener("click", makeHeaderRed);
+                </code>
+            </div>
+
+            <p>Functions can also take in or give back data using arguments and the "return" keyword:</p>
+
+            <div class="code-block">
+                <code>
+                    function addTogether(numberOne, numberTwo) {
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return numberOne + numberTwo;
+                        <br>
+                    }
+                    <br>
+                    <br>
+                    addTogether(5,6)
+                    <br>
+                    // this will give back 11
+
+                </code>
+            </div>
+        </section>
+
+        <section id="arrays-section">
+            <h2>Arrays</h2>
+
+            <p>An array is a more complex data type which allows us to store several values in a sequence. Basically, an array is a collection of data:</p>
+
+            <div class="code-block">
+                <code>
+                    const catNames = ["Octavia", "Ursula", "Olivia"]
+                    <br>
+                    catNames.length // this will return 3
+                    <br>
+                    const emptyArray = []
+                    emptyArray.length // this will return 0
+                    <br>
+                    const arrayWithDifferentDataTypes = [42, "meaning of life", true]
+                    <br>
+                    arrayWithDifferentDataTypes.length // return 3
+                </code>
+            </div>
+
+            <p>Each item in an array has an "index" which is basically what number in the array's order it is. Javascript is "zero indexed" which means it starts counting at "0" instead of at "1". We can access and change items in an array with its index:</p>
+
+            <div class="code-block">
+                <code>
+                    const catNames = ["Octavia", "Ursula", "Olivia"]
+                    <br>
+                    catNames[2] // this will be "Olivia"
+                    <br>
+                    catNames[2] = "Elizabeth"
+                </code>
+            </div>
+
+            <p>We can add items to the end of the array with <code>.push()</code> and remove them with <code>.pop()</code>. We can also add and remove items from the beginning with <code>.unshift()</code> and <code>.shift()</code>:</p>
+
+            <div class="code-block">
+                <code>
+                    const catNames = ["Octavia", "Ursula", "Olivia"]
+                    <br>
+                    catNames.push("Guinevere")
+                    <br>
+                    // ["Octavia", "Ursula", "Olivia", "Guinevere"]
+                    <br>
+                    catNames.pop()
+                    <br>
+                    // ["Octavia", "Ursula", "Olivia"]
+                    <br>
+                    catNames.unshift("Garfield")
+                    <br>
+                    // ["Garfield", "Octavia", "Ursula", "Olivia"]
+                    <br>
+                    catNames.shift()
+                    <br>
+                    // ["Octavia", "Ursula", "Olivia"]
+                </code>
+
+                <p>These changes to the array are "destructive"; they don't make a new array, they instead edit the old array.</p>
+            </div>
+
+        </section>
+
+        <section class="math-random-section">
+            <h2>Random Array Item</h2>
+
+            <p>If we want to get a random item from an array we need to use a special set of JS functions starting with <code>Math.random</code>. Using <code>Math.random</code> will return a random fraction between <code>0</code> and <code>1</code>. We then multiply that by the length of the array and then round down using <code>Math.floor</code>. All together this looks like this:</p>
+            
+            <div class="code-block">
+                function randomArrayItem(array) {
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                const index = Math.floor(Math.random() * array.length)
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                return array[index]
+                <br>
+                }
+            </div>
+
+            <p>Random cat name: <span style="font-weight: bold;" id="cat-name-display">???</span></p>
+            <button onclick="displayRandomCatName()">Get Random Cat Name</button>
+        </section>
+
+        <section>
+            <h2>Loops</h2>
+            <p>Doing something for each item in an array is known as "looping" and Javascript has a lot of different ways of achieving loops. There is the quite complicated for loop with an index that you'll see commonly:</p>
+
+            <div class="code-block">
+                <code>
+                    for (let index = 0; index < array.length; index++) {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        doSomething( array[i] )
+                        <br>
+                    }
+                </code>
+            </div>
+
+            <p>This will start at the beginning of the array and run a function on each item until the end of the array.</p>
+
+            <p>There is also a far simpler version of the loop that doesn't use the index:</p>
+
+            <div class="code-block">
+                <code>
+                    for (item in array) {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        doSomething( item )
+                        <br>
+                    }
+                </code>
+            </div>
+
+            <p>This has the drawback that we don't get the index but if we don't care about it this loop is easier to write.</p>
+
+        </section>
+
+        <section>
+
+            <h2>Adding New Content</h2>
+
+            <p>You can add new items to the DOM (Document Object Model) using three steps...</p>
+
+            <ol>
+                <li>Create the element so it exists.</li>
+                <li>Give the element attributes, text, and anything else it needs.</li>
+                <li>Add the element to where it needs to go.</li>
+            </ol>
+
+            <p>To create an element we use the special <code>.createElement()</code> function letting it know what kind of element we'd like to create:</p>
+            
+            <div class="code-block">
+                <code>
+                    const pTag = document.createElement('p')
+                </code>
+            </div>
+
+            <p>Then we can add things like <code>textContent</code> or a <code>className</code>:</p>
+
+            <div class="code-block">
+                <code>
+                    pTag.textContent = "Lorem ipsum dolorum etc."
+                    <br>
+                    pTag.className = "lorem-ipsum"
+                </code>
+            </div>
+
+            <p>Finally we can find a place to put it, usually in a specific container:</p>
+
+            <div class="code-block">
+                <code>
+                    const loremContainer = document.querySelector("#lorem-container")
+                    <br>
+                    loremContainer.append(pTag)
+                </code>
+            </div>
+
+            <p>It should now show up on the screen! The code below was created using this method and looping over the <code>catNames</code> array:</p>
+            
+            <div id="cat-names-area">
+            </div>
+
+        </section>
+
+        <section>
+            <h2>Date & String Interpolation</h2>
+
+            <p>You can access the current day and time with <code>new Date()</code> and use its various attributes to add it to a string through a process known as string interpolation:</p>
+
+            <div class="code-block">
+                <code>
+                    const now = new Date()
+                    
+                    const hour = now.getHours()
+                    const minute = now.getMinutes()
+
+                    const formattedString = `It is currently ${hour}:${minute}...`
+                </code>
+            </div>
+
+            <p>String interpolation can only happen with backtics, a.k.a. the <code style="color:white;background-color:#555;">`</code> key. You can interpolate values and variables in the <code>${ }</code> syntax.</p>
+        </section>
+
+        <section>
+            <h2>Conditional Statements</h2>
+
+            <p>In Javascript (and many other languages) you can use the language if "if this do this and else do this". This is known technically as conditional logic but follows a very simple idea... if something is true we do something and otherwise we do something else.</p>
+
+            <div class="code-block">
+                <code>
+                    if (true) {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        console.log("I am true")
+                        <br>
+                    } else {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        console.log("I am false")
+                        <br>
+                    }
+                </code>
+            </div>
+
+            <p>Certain values and expressions come out explicitly as <code>true</code> or <code>false</code> such as <code>1 &lt; 2</code> which will be <code>true</code> and <code>2 &lt; 1</code> which comes out to <code>false</code>.</p>
+
+            <p>Additionally, every value in Javascript has an inherent "truthiness" to it. For example, in an <code>if</code> statement the <code>undefined</code> value will act just like the <code>false</code> boolean.</p>
+
+            <p>You can test an item's "truthiness" by converting it to a boolean:</p>
+
+            <div class="code-block">
+                <code>
+                    Boolean("Hello world") // true
+                    <br>
+                    Boolean("") // false
+                    <br>
+                    Boolean(100) // true
+                    <br>
+                    Boolean(0) // false
+                    <br>
+                    Boolean( ["hello", "world"] ) // true
+                    <br>
+                    Boolean( [] ) // true
+                </code>
+            </div>
+
+            <p>One additional wrinkle to an <code>if else</code> statement is that you aren't limited to a single <code>if</code>:</p>
+
+            <div class="code-block">
+                <code>
+                    if (1 > 2) {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        console.log("First condition was true")
+                        <br>
+                    } else if (2 > 3) {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        console.log("Second condition was true")
+                        <br>
+                    } else if (3 > 4) {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        console.log("Third condition was true")
+                        <br>
+                    } else {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        console.log("None of the conditions were true")
+                        <br>
+                    }
+                </code>
+            </div>
+
+            <p>Finally, Javascript has a special syntax for these expressions where we can say "if this AND this are true" as well as "if this OR this are true". The <code>&&</code> is used to indicate both must be true and the <code>||</code> is used to indicate either one can be true:</p>
+
+            <div class="code-block">
+                <code>
+                    true && true // true
+                    <br>
+                    true && false // false
+                    <br>
+                    true || false // true
+                    <br>
+                    false || false // false
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h2>Javascript Objects</h2>
+
+            <p>More text to come here...</p>
+
+            <ul id="tabs-area">
+            </ul>
+
+            <div id="information-area">
+
+                <h3 id="pet-species">Pet Species Goes Here</h3>
+                <p id="age">Age goes here</p>
+                <p id="size">Size goes here</p>
+                <p id="habitat">Habitat goes here</p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
