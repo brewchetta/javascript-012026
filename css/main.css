@@ -23,6 +23,7 @@ body {
     left: 0;
     right: 0;
     top: 0;
+    z-index: 2;
 }
 
 .cat-name {
@@ -75,7 +76,7 @@ body {
     overflow: hidden;
     height: 50vh;
     position: relative;
-    margin-bottom: 30vh;
+    margin-bottom: 10vh;
 }
 
 #parallax-sandbox img {
@@ -95,4 +96,55 @@ body {
     right: 0;
     text-align: center;
     text-transform: uppercase;
+}
+
+#banner-ad-area {
+    height: 250px;
+    width: 250px;
+    background: linear-gradient(#000, #183972);
+    position: relative;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+#banner-ad-area img {
+    width: 250px;
+    position: absolute;
+    top: 250px;
+    left: 0;
+}
+
+#banner-ad-area div {
+    width: 250px;
+    height: 250px;
+    background-color: #4b7fd7;
+    position: absolute;
+    top: 0;
+    left: 250px;
+}
+
+#banner-ad-area p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+
+#intro-to-gsap-section {
+    display: none;
+}
+
+#scrolltrigger-section {
+    min-height: 140vh;
+    min-width: 100%;
+}
+
+.scroll-box {
+    width: 150px;
+    height: 100px;
+    border: solid black 3px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
 }
