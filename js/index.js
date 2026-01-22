@@ -174,7 +174,7 @@ function showCurrentTime() {
     const formattedTime = `Page loaded at ${hour}:${minutes} EST`
     const pTag = document.createElement('p')
     pTag.textContent = formattedTime
-    document.body.prepend(pTag)
+    document.body.append(pTag)
 }
 
 showCurrentTime()
@@ -371,3 +371,79 @@ function pauseAll() {
         animation.pause()
     }
 }
+
+pauseAll()
+
+new Splide('.splide').mount()
+
+// GOOGLE AD //
+
+const adTimeline = gsap.timeline()
+
+adTimeline.addLabel("worldDone", 2)
+adTimeline.addLabel("adComplete", 3.5)
+
+window.addEventListener("load", function() {
+    adTimeline
+    .set("#banner-ad-area", { visibility: "visible" })
+    .to("#banner-ad-area img", 
+        { y: "-250px", duration: 2})
+    .to("#final-panel", {
+        x: "-250px",
+        duration: 0.5
+    }, "worldDone+=1")
+})
+// the ad starts hidden in order to wait until it's properly loaded
+// first thing we do in the animation is set the visibility back to it's normal state
+
+// SCROLL TRIGGER //
+
+gsap.registerPlugin(ScrollTrigger)
+
+const scrollBoxes = document.querySelectorAll('.scroll-box')
+
+for (let index = 0; index < scrollBoxes.length; index++) {
+
+    let xValue = "200px"
+
+    if (index % 2 === 1) {
+        xValue = "-200px"
+    }
+
+    let box = scrollBoxes[index]
+
+    gsap.from(box, {
+        x: xValue,
+        duration: 5,
+        scrollTrigger: {
+            trigger: box,
+            start: "top 60%",
+            end: "bottom 40%",
+            toggleActions: "play pause resume none"
+            // scrub: 1 
+            // scrub causes the animation to forward and reverse as you scroll up and down the element
+            // essentially it no longer has a duration with scrub
+        },
+    })
+
+}
+
+// PARALLAX //
+
+// document.querySelector("img").dataset.speed --> "0.05"
+
+const parallaxTimeline = gsap.timeline({
+    scrollTrigger: {
+        trigger: "#parallax-sandbox",
+        scrub: true,
+        invalidateOnRefresh: true
+    }
+})
+
+document.querySelectorAll("#parallax-sandbox img").forEach(function(img) {
+    const speed = img.dataset.speed
+    parallaxTimeline.to(img, {
+        y: -(img.offsetHeight * speed),
+        ease: "none"
+    }, 0)
+})

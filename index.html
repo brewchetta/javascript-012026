@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/splide.min.css">
     <link rel="stylesheet" href="css/main.css">
     <title>Javascript!!!</title>
+    <!-- <script defer src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.11.5_min.js"></script> -->
     <script defer src="js/gsap.min.js"></script>
-    <script src="js/ScrollTrigger.min.js"></script>
+    <script defer src="js/ScrollTrigger.min.js"></script>
+    <script defer src="js/splide.min.js"></script>
     <script defer src="js/index.js"></script>
     <script src="js/timer.js"></script>
 
@@ -25,6 +28,29 @@
     <button onclick="makeHeaderBlack()" id="black-button">Black</button>
     
     <main>
+
+        <nav>
+            <a href="#variables-section">Variables</a>
+            <a href="#strings-section">Strings</a>
+            <a href="#numbers-section">Numbers</a>
+            <a href="#booleans-section">Booleans</a>
+            <a href="#selectors-section">Query Selectors</a>
+            <a href="#changing-properties-section">Changing Properties</a>
+            <a href="#functions-section">Functions</a>
+            <a href="#arrays-section">Arrays</a>
+            <a href="#math-random-section">Random Array Item</a>
+            <a href="#loops-section">Loops</a>
+            <a href="#adding-dom-section">Adding New Content</a>
+            <a href="#dates-and-interpolation-section">Dates & String Interpolation</a>
+            <a href="#conditional-section">Conditionals</a>
+            <a href="#objects-section">Javascript Objects</a>
+            <a href="#intro-to-gsap-section">Intro to GSAP</a>
+            <a href="#splide-section">Splide</a>
+            <a href="#google-ads-section">Google Ads</a>
+            <a href="#fouc-section">Fixing Flash Of Unstyled Content</a>
+            <a href="#scrolltrigger-section">ScrollTrigger</a>
+            <a href="#parallax-section">Parallax</a>
+        </nav>
         
         <section id="variables-section">
             <h2>Declaring Variables</h2>
@@ -280,7 +306,7 @@
             <button onclick="displayRandomCatName()">Get Random Cat Name</button>
         </section>
 
-        <section>
+        <section id="loops-section">
             <h2>Loops</h2>
             <p>Doing something for each item in an array is known as "looping" and Javascript has a lot of different ways of achieving loops. There is the quite complicated for loop with an index that you'll see commonly:</p>
 
@@ -312,7 +338,7 @@
 
         </section>
 
-        <section>
+        <section id="adding-dom-content-section">
 
             <h2>Adding New Content</h2>
 
@@ -359,7 +385,7 @@
 
         </section>
 
-        <section>
+        <section id="dates-and-interpolation-section">
             <h2>Date & String Interpolation</h2>
 
             <p>You can access the current day and time with <code>new Date()</code> and use its various attributes to add it to a string through a process known as string interpolation:</p>
@@ -378,7 +404,7 @@
             <p>String interpolation can only happen with backtics, a.k.a. the <code style="color:white;background-color:#555;">`</code> key. You can interpolate values and variables in the <code>${ }</code> syntax.</p>
         </section>
 
-        <section>
+        <section id="conditionals-section">
             <h2>Conditional Statements</h2>
 
             <p>In Javascript (and many other languages) you can use the language if "if this do this and else do this". This is known technically as conditional logic but follows a very simple idea... if something is true we do something and otherwise we do something else.</p>
@@ -458,7 +484,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="objects-section">
             <h2>Javascript Objects</h2>
 
             <p>An object is a data structure similar to an array however unlike an array which uses an index to track the data inside it, an object uses a "key" which is sort of like a label:</p>
@@ -519,7 +545,7 @@
 
         </section>
 
-        <section>
+        <section id="intro-to-gsap-section">
             <h2>Intro to GSAP</h2>
 
             <p>You can find more information about GSAP <a href="https://gsap.com/">here</a> including their <a href="https://gsap.com/resources/get-started">tutorial</a>. Reading documentation and going through a tutorial is often the best way to learn a new library.</p>
@@ -634,59 +660,266 @@
 
         </section>
         
-        <section>
-            <h2>External Libraries: Splide</h2>
+        <section id="splide-section" class="splide" aria-label="Splide Example">
+        <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide">
+                        <div style="background: blue;height:300px;width:100%;">Slide 01</div>
+                    </li>
+                    <li class="splide__slide">
+                        <div style="background: blue;height:300px;width:100%;">Slide 01</div>
+                    </li><li class="splide__slide">
+                        <img src="assets/planet-earth.png" style="height:300px;">
+                    </li>
+                </ul>
+        </div>
         </section>
 
-        <section>
+        <section id="google-ads-section">
             <h2>Google Banner Ads with GSAP</h2>
+
+            <a href="https://www.earth.com">
+                <div id="banner-ad-area">
+                    <img src="assets/planet-earth.png" alt="planet earth">
+                    <div id="final-panel">
+                        <p>Apply Today To Learn If Earth Is Right For You</p>
+                    </div>
+                </div>
+            </a>
+            
+            <p>Google ads have a series of limitations: you must choose from a select size (height and width) for the ad which are a few too many to list here. Ads generally use jpg, png, or gif for images. Most importantly, the overall file size for the ad needs to be 150kb or less.</p>
+
+            <p>The file size restriction is probably the toughest if you want to add animations but luckily for us the GSAP CDN has been whitelisted so it doesn't count!</p>
+
+            <p>One last mention, animations need to be 30 seconds or less. An animation can loop but the loop must stop at the 30 second mark.</p>
+                
+            <p>Also a gif must be less than 5 frames per second but we don't have to worry about that since we won't be using them here.</p>
+
         </section>
 
-        <section>
+        <section id="fouc-section">
             <h2>Fixing Flash Of Unstyled Content</h2>
+
+            <p>Sometimes an ad or animation hasn't had time to "set up" before the page is fully loaded and this might mean a user sees the unanimated starting position of the ad. This can be ugly so we avoid this by initially starting the container with <code>visibility: hidden</code> and then make it visible with <code>.set("#conatiner", {visibility: "visible"})</code> to make it viewable.</p>
+
+            <p>For some added insurance you also might trigger the animation inside a function using a special event:</p>
+
+            <div class="code-block">
+                <code>
+                    window.addEventListener("load", animationFunction)
+                </code>
+            </div>
+
+            <p>This will wait until all assets, scripts, styles, and elements have been loaded and rendered before it properly runs the animation.</p>
         </section>
 
-        <section>
+        <section id="scrolltrigger-section">
             <h2>GSAP Scrolltrigger</h2>
+
+            <div class="scroll-box" id="scroll-one"></div>
+
+            <div class="scroll-box" id="scroll-two"></div>
+
+            <div class="scroll-box" id="scroll-three"></div>
+
+            <div class="scroll-box" id="scroll-four"></div>
+
+            <div class="scroll-box" id="scroll-five"></div>
+
+            <div class="scroll-box" id="scroll-six"></div>
+
+            <p>ScrollTrigger is a special GSAP plugin (an expansion to the library) which gives access to some special attributes in an animation. When used, this can help us to only trigger animations when a user has actually scrolled to that animation's position.</p>
+
+            <p>In order to use this plugin it must first be registered:</p>
+
+            <div class="code-block">
+                <code>
+                    gsap.registerPlugin(ScrollTrigger)
+                </code>
+            </div>
+
+            <p>A scroll trigger can simply trigger on an element by stating which element will trigger it:</p>
+
+            <div class="code-block">
+                <code>
+                    gsap.registerPlugin(ScrollTrigger)
+                </code>
+            </div>
+
+            <p>Once registered the animation needs to know which element "triggers" it. This is usually the same as the element that the animation is on:</p>
+
+            <div class="code-block">
+                <code>
+                    gsap.from('#scroll-one', {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        x: "-200px",
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        duration: 5,
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        scrollTrigger: '#scroll-one'
+                        <br>
+                    }
+                </code>
+            </div>
+
+            <p>We can make this more robust by making the scrolltrigger property an object with some additional properties of its own:</p>
+
+            <div class="code-block">
+                <code>
+                    gsap.from("#scroll-one", {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        x: "-200px",
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        duration: 5,
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        scrollTrigger: {
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            trigger: "#scroll-one",
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            start: "top 60%",
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            end: "bottom 40%",
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            toggleActions: "play pause resume none"
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        },
+                        <br>
+                    })
+                </code>
+            </div>
+
+            <p>The <code>start</code> and <code>end</code> properties determine where relative to the viewport and the element the animation triggers, in this case it will start when the top of the element hits 60% of the way down the page. The <code>end</code> has to do with the <code>toggleActions</code>.</p>
+
+            <p>The <code>toggleActions</code> is a string of four actions that happen at different times. The first is simply what happens when the animation is triggered by the start of the scroll hitting the start of the element. The second triggers when the end of the scroll passes the end of the element (in this case we pause the animation). The third is what happens when we scroll back up so the end of the viewport is once again within the element's bounds. The fourth is what happens if someone scrolls up past the element and then scroll back down (this can include restarting the animation or simply leaving it as is).</p>
+
+            <p>There is one additional and very helpful property called <code>scrub</code> which causes an animation to step a percentage of the way through based on how far we've scrolled through it:</p>
+
+            <div class="code-block">
+                <code>
+                    gsap.from("#scroll-one", {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        x: "-200px",
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        scrollTrigger: {
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            trigger: "#scroll-one",
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            start: "top 60%",
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            end: "bottom 40%",
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            scrub: true
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        },
+                        <br>
+                    })
+                </code>
+            </div>
+
+            <p>With <code>scrub</code> the animation has no <code>duration</code> and doesn't need a <code>start</code> or <code>end</code> since the animation's progress is completely tied to how far down you've scrolled.</p>
+
+            <p>In general, a scrollTrigger can only be applied to one element at a time which means to apply multiple scrollTriggers at the same time you must use something like a <code>for</code> loop.</p>
+
         </section>
 
-        <section>
+        <section id="parallax-section">
             <h2>Parallax with GSAP</h2>
 
             <div id="parallax-sandbox">
 
                 <img src="assets/planet-fire.png" 
                 alt="fire planet" 
-                style="left:30%;width:5%;top:20%">
-
+                style="left:30%;width:5%;top:20%"
+                data-speed="0.05">
 
                 <img src="assets/planet-mars.png" 
                 alt="planet mars" 
-                style="left:60%;width:5%;top:60%">
+                style="left:60%;width:5%;top:60%"
+                data-speed="0.05">
 
                 <img src="assets/planet-desert.png" 
                 alt="desert planet" 
-                style="left:10%;width:10%;top:30%">
+                style="left:10%;width:10%;top:30%"
+                data-speed="0.20">
                 
                 <img src="assets/planet-molten.png" 
                 alt="molten planet" 
-                style="left:40%;width:10%;top:30%">
+                style="left:40%;width:10%;top:30%"
+                data-speed="0.20">
                 
                 <img src="assets/planet-snowy.png" 
                 alt="snowy planet" 
-                style="left:-10%;width:20%;top:50%">
+                style="left:-10%;width:20%;top:50%"
+                data-speed="0.40">
                 
                 <img src="assets/planet-green.png" 
                 alt="green planet" 
-                style="left:15%;width:30%;top:60%">
+                style="left:15%;width:30%;top:60%"
+                data-speed="0.60">
                 
                 <img src="assets/planet-earth.png" 
                 alt="planet earth" 
-                style="left:60%;width:50%;top:80%">
+                style="left:60%;width:50%;top:80%"
+                data-speed="1">
 
                 <span>space</span>
 
             </div>
+
+            <p>Parallax takes advantage of how human vision works to create the illusion of depth. When moving past a series of objects, those objects that are far away seem to move slower across our vision than the objects that are closer. By making things "closer" to the viewer move fast as we scroll past them and objects "farther" from the viewer scroll slowly we create this parallax illusion.</p>
+
+            <p>In terms of animating them with GSAP we've created a container with absolute objects, the closer ones in this case are larger. Each object has a dataset known as <code>data-speed</code> which determines who fast it moves. Larger numbers mean those objects move more quickly and feel like they're in the foreground:</p>
+
+            <div class="code-block">
+                <code>
+                &lt;img src="assets/planet-green.png"
+                <br>
+                alt="green planet" 
+                <br>
+                style="left:15%;width:30%;top:60%"
+                <br>
+                data-speed="0.60"&gt;
+                </code>
+            </div>
+
+            <p>From there we create a scrub timeline and attach a tween to each image and the timeline. This tween will move the image further depending on the animation's <code>data-speed</code>:</p>
+
+            <div class="code-block">
+                <code>
+                    const parallaxTimeline = gsap.timeline({
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        scrollTrigger: {
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            trigger: "#parallax-sandbox",
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            scrub: true,
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            invalidateOnRefresh: true
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        }
+                        <br>
+                    })
+                    <br>
+                    <br>
+                    document.querySelectorAll("#parallax-sandbox img").forEach(function(img) {
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        const speed = img.dataset.speed
+                        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        parallaxTimeline.to(img, {
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            y: -(img.offsetHeight * speed),
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            ease: "none"
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        }, 0)
+                        <br>
+                    })
+                </code>
+            </div>
+
         </section>
 
 
